@@ -1,49 +1,49 @@
-let gameWidth = 400;
-let counter = 2;
+var gameWidth = 400;
+var counter = 2;
 function stopSliding(slider1, slider2, sliderB4){
-    let btn = document.getElementById("btn");
-    let slider1 = document.getElementById(slider1);
-    let slider2 = document.getElementById(slider2);
-    let sliderB4 = document.getElementById(sliderB4);
-    let left = window.getComputedStyle(slider1).getPropertyValue("left");
+    var btn = document.getElementById("btn");
+    var slider1 = document.getElementById(slider1);
+    var slider2 = document.getElementById(slider2);
+    var sliderB4 = document.getElementById(sliderB4);
+    var left = window.getComputedStyle(slider1).getPropertyValue("left");
     slider1.classList.remove("animate");
     slider1.style.left = left;
     
-    let width = parseFloat(window.getComputedStyle(slider1).getPropertyValue("width"));
-    let left1 = parseFloat(window.getComputedStyle(slider1).getPropertyValue("left"));
-    let left2 = parseFloat(window.getComputedStyle(sliderB4).getPropertyValue("left"));
-    let difference = left1 - left2;
-    let absDifference = Math.abs(left1 - left2);
+    var width = parseFloat(window.getComputedStyle(slider1).getPropertyValue("width"));
+    var left1 = parseFloat(window.getComputedStyle(slider1).getPropertyValue("left"));
+    var left2 = parseFloat(window.getComputedStyle(sliderB4).getPropertyValue("left"));
+    var difference = left1 - left2;
+    var absDifference = Math.abs(left1 - left2);
     if(difference>width||difference<-width){
         document.getElementById("restart").style.display = "block";
-        let scoreStr = "Score:";
-        let scoreMinusOne = counter-2;
-        let score = scoreStr.concat(scoreMinusOne);
+        var scoreStr = "Score:";
+        var scoreMinusOne = counter-2;
+        var score = scoreStr.concat(scoreMinusOne);
         btn.setAttribute("onclick", "");
         alert(score);
         Location.reload();
     }
-    let offset = width - absDifference;
-    let px = "px";
-    let offstring = offset.toString();
-    let theWidth = offstring.concat(px);
+    var offset = width - absDifference;
+    var px = "px";
+    var offstring = offset.toString();
+    var theWidth = offstring.concat(px);
     
-    let str1 = "stopSliding('slider";
-    let str2 = counter;
-    let str3 = "','slider";
-    let str4 = counter+1;
-    let str5 = "','slider";
-    let str6 = counter-1;
-    let str7 = "')";
-    let str8 = str1.concat(str2, str3, str4, str5, str6, str7);
+    var str1 = "stopSliding('slider";
+    var str2 = counter;
+    var str3 = "','slider";
+    var str4 = counter+1;
+    var str5 = "','slider";
+    var str6 = counter-1;
+    var str7 = "')";
+    var str8 = str1.concat(str2, str3, str4, str5, str6, str7);
     btn.setAttribute("onclick",str8);
     if(difference>0){
-        let newleft = left1 + absDifference;
+        var newleft = left1 + absDifference;
     }else{
-        let newleft = left1 - difference;
+        var newleft = left1 - difference;
     }
-    let theleft = newleft.toString();
-    let newnewleft = theleft.concat(px);
+    var theleft = newleft.toString();
+    var newnewleft = theleft.concat(px);
     slider1.style.width = theWidth; 
     if(difference<0){
         slider1.style.left = newnewleft;
