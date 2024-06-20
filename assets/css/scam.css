@@ -1,0 +1,26 @@
+* {
+  font-size: 1.5rem;
+}
+
+body {
+  background-color: #202124;
+}
+
+#changeColorBtn {
+  position: relative;
+  color: rgb(253, 126, 126);
+  background-color:rgb(46, 45, 45) ;
+}
+
+.btn {
+  border-radius: 0.7rem;
+  color: #fff;
+  padding: 20px;
+}
+
+#title {
+  text-align: center;
+  font-size: 50px;
+  color: white;
+
+}
