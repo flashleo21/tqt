@@ -31,8 +31,8 @@ setTimeout(() => {
   message.style.top = '50%';
   message.style.left = '50%';
   message.style.transform = 'translate(-50%, -50%)';
-  message.style.fontSize = '24px';
-  message.style.color = 'red';
+  message.style.fontSize = '12px';
+  message.style.color = 'lightcoral';
   document.body.appendChild(message);
 
   setTimeout(() => {
