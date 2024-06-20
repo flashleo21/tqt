@@ -1,13 +1,24 @@
+function randomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 let changeColorBtn = document.getElementById('changeColorBtn');
 
 changeColorBtn.addEventListener('mousemove', (e) => {
-  let randomPositionTop = Math.floor(Math.random() * 300);
-  let randomPositionRight = Math.floor(Math.random() * 500);
-  let randomPositionBottom = Math.floor(Math.random() * 300);
-  let randomPositionLeft = Math.floor(Math.random() * 500);
+  let buttonWidth = changeColorBtn.offsetWidth;
+  let buttonHeight = changeColorBtn.offsetHeight;
+
+  let windowWidth = window.innerWidth;
+  let windowHeight = window.innerHeight;
+
+  let maxPositionTop = windowHeight - buttonHeight;
+  let maxPositionLeft = windowWidth - buttonWidth;
+
+  let randomPositionTop = randomInRange(0, maxPositionTop);
+  let randomPositionLeft = randomInRange(0, maxPositionLeft);
+
+  changeColorBtn.style.position = 'absolute';
   changeColorBtn.style.top = `${randomPositionTop}px`;
-  changeColorBtn.style.right = `${randomPositionRight}px`;
-  changeColorBtn.style.bottom = `${randomPositionBottom}px`;
   changeColorBtn.style.left = `${randomPositionLeft}px`;
 });
 
@@ -23,4 +34,9 @@ setTimeout(() => {
   message.style.fontSize = '24px';
   message.style.color = 'red';
   document.body.appendChild(message);
+
+  setTimeout(() => {
+    location.reload();
+  }, 3000);
+
 }, 20000);
